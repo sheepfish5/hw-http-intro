@@ -132,11 +132,19 @@ Repeat the experiment various times to answer the following questions by observi
 
 * What is the effect of changing the `name` properties of the form fields?
 
+`name` properties refer to the `key` of `key=value` in request body. If change the value of the `name` properties, the request body would change.
+
 * Can you have more than one Submit button?  If you do, how does the server tell which one was clicked?  (Hint: experiment with the attribtues of the `<submit>` tag.)
+
+Does submit tag really exist? I use input tag with the attribute type=submit. I add a new submit button called another_submit. When I click the new button, in the request body, `another_submit=Another+Submit` appears install of `login=Log+In%21`.
 
 * Can the form be submitted using `GET` instead of `POST`?  If yes, what is the difference in how the server sees those requests?
 
+Yes. Just need to change the attribute `method` of `form` tag from `post` to `get`. After changing, there is no request body and all the `key=value` become query parameters in the path of the first line.
+
 * What other HTTP verbs are possible in the form submit route?  Can you get the web browser to generate a route that uses PUT, PATCH, or DELETE?
+
+I tried to change `method` attribute to `put`, `patch` and `delete` respectively, but the brower only used `get` method to send request.
 
 ## Learning goal: understand the effect of HTTP being stateless, and the role of cookies
 
